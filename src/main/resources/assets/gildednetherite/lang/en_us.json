@@ -5,5 +5,11 @@
   "item.gildednetherite.gilded_netherite_helmet": "Gilded Netherite Helmet",
   "item.gildednetherite.gilded_netherite_chestplate": "Gilded Netherite Chestplate",
   "item.gildednetherite.gilded_netherite_leggings": "Gilded Netherite Leggings",
-  "item.gildednetherite.gilded_netherite_boots": "Gilded Netherite Boots"
+  "item.gildednetherite.gilded_netherite_boots": "Gilded Netherite Boots",
+
+  "item.gildednetherite.plated_netherite": "Plated Netherite",
+  "item.gildednetherite.plated_netherite_helmet": "Plated Netherite Helmet",
+  "item.gildednetherite.plated_netherite_chestplate": "Plated Netherite Chestplate",
+  "item.gildednetherite.plated_netherite_leggings": "Plated Netherite Leggings",
+  "item.gildednetherite.plated_netherite_boots": "Plated Netherite Boots"
 }

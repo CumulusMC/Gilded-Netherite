@@ -3,11 +3,11 @@
   "package": "com.cumulusmc.gildednetherite.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "ArmorItemMixin",
     "EntityMixin",
-    "ArmorItemMixin"
+    "PiglinBrainMixin"
   ],
   "client": [
-
   ],
   "injectors": {
     "defaultRequire": 1
