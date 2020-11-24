@@ -5,7 +5,10 @@
   "mixins": [
     "ArmorItemMixin",
     "EntityMixin",
-    "PiglinBrainMixin"
+    "PiglinBrainMixin",
+    "PiglinBruteEntityAccessor",
+    "PiglinEntityAccessor",
+    "SensorTypeMixin"
   ],
   "client": [
   ],

@@ -2,15 +2,18 @@ package com.cumulusmc.gildednetherite.items;
 
 import com.cumulusmc.gildednetherite.GildedNetherite;
 import com.cumulusmc.gildednetherite.materials.GildedNetheriteArmorMaterial;
+import com.cumulusmc.gildednetherite.materials.PlatedNetheriteArmorMaterial;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.*;
+import net.minecraft.item.ArmorItem;
+import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class RegisterItems {
 
     public static final ArmorMaterial gildedNetheriteArmorMaterial = new GildedNetheriteArmorMaterial();
-    public static final ArmorMaterial platedNetheriteArmorMaterial = new GildedNetheriteArmorMaterial();
+    public static final ArmorMaterial platedNetheriteArmorMaterial = new PlatedNetheriteArmorMaterial();
 
     public static final Item GILDED_NETHERITE = new GildedNetheriteItem(new Item.Settings().group(GildedNetherite.GILDED_NETHERITE_GROUP));
     public static final Item GILDED_NETHERITE_HELMET = new ArmorItem(gildedNetheriteArmorMaterial, EquipmentSlot.HEAD, new Item.Settings().group(GildedNetherite.GILDED_NETHERITE_GROUP).fireproof());
