@@ -1,6 +1,5 @@
 package com.cumulusmc.gildednetherite.sensor;
 
-import com.cumulusmc.gildednetherite.items.RegisterItems;
 import com.cumulusmc.gildednetherite.mixin.SensorTypeMixin;
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.entity.LivingEntity;
@@ -9,16 +8,18 @@ import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.minecraft.entity.ai.brain.sensor.Sensor;
 import net.minecraft.entity.ai.brain.sensor.SensorType;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 
-import java.util.*;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static com.cumulusmc.gildednetherite.GildedNetherite.hasFullPlatedNetherite;
 
 public class NearestPlayerNonPlatedNetheriteSensor extends Sensor<LivingEntity> {
     public static final SensorType<NearestPlayerNonPlatedNetheriteSensor> NEAREST_PLAYER_NON_PLATED_NETHERITE =
@@ -33,27 +34,10 @@ public class NearestPlayerNonPlatedNetheriteSensor extends Sensor<LivingEntity> 
         return ImmutableSet.of(MemoryModuleType.NEAREST_PLAYERS, MemoryModuleType.NEAREST_VISIBLE_PLAYER, MemoryModuleType.NEAREST_VISIBLE_TARGETABLE_PLAYER);
     }
 
-    private boolean hasPlatedNetherite(LivingEntity entity) {
-        Iterable<ItemStack> iterable = entity.getArmorItems();
-        Iterator<ItemStack> iterator = iterable.iterator();
-
-        Item item;
-
-        do {
-            if (!iterator.hasNext()) {
-                return false;
-            }
-
-            item = iterator.next().getItem();
-        } while (!(item instanceof ArmorItem) || ((ArmorItem) item).getMaterial() != RegisterItems.platedNetheriteArmorMaterial);
-
-        return true;
-    }
-
     @Override
     protected void sense(ServerWorld world, LivingEntity entity) {
         Stream<ServerPlayerEntity> players = world.getPlayers().stream().filter(EntityPredicates.EXCEPT_SPECTATOR).filter((serverPlayerEntity) ->
-                entity.isInRange(serverPlayerEntity, 16.0D) && !hasPlatedNetherite(entity)
+                entity.isInRange(serverPlayerEntity, 16.0D) && !hasFullPlatedNetherite(entity)
         );
 
         List<PlayerEntity> nearestPlayers = players

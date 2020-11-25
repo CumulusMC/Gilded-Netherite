@@ -18,6 +18,8 @@ import net.minecraft.server.world.ServerWorld;
 import java.util.Iterator;
 import java.util.Set;
 
+import static com.cumulusmc.gildednetherite.GildedNetherite.hasFullPlatedNetherite;
+
 public class HurtByNonPlatedNetheriteSensor extends Sensor<LivingEntity> {
     public static final SensorType<HurtByNonPlatedNetheriteSensor> HURT_BY_NON_PLATED_NETHERITE =
             SensorTypeMixin.register(
@@ -52,7 +54,7 @@ public class HurtByNonPlatedNetheriteSensor extends Sensor<LivingEntity> {
         DamageSource damageSource = entity.getRecentDamageSource();
 
         if (damageSource != null) {
-            if (damageSource.getAttacker() != null && hasPlatedNetherite(damageSource.getAttacker())) {
+            if (damageSource.getAttacker() != null && hasFullPlatedNetherite(damageSource.getAttacker())) {
                 return;
             }
 

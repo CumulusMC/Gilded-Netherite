@@ -10,11 +10,14 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.brain.sensor.Sensor;
 import net.minecraft.entity.ai.brain.sensor.SensorType;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.PiglinBruteEntity;
 import net.minecraft.entity.mob.PiglinEntity;
+import net.minecraft.item.ArmorItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -26,8 +29,6 @@ import java.util.ArrayList;
 import static net.minecraft.entity.ai.brain.sensor.SensorType.*;
 
 public class GildedNetherite implements ModInitializer {
-    private Logger logger = LogManager.getLogger("GildedNetherite");
-
     public static final ArrayList<DamageSource> DAMAGE_SOURCES = Lists.newArrayList(
             // All the damage sources we should be immune to
 
@@ -37,11 +38,26 @@ public class GildedNetherite implements ModInitializer {
             DamageSource.LIGHTNING_BOLT,
             DamageSource.ON_FIRE
     );
-
     public static final ItemGroup GILDED_NETHERITE_GROUP = FabricItemGroupBuilder.create(
             new Identifier("gildednetherite", "gilded_netherite_group"))
             .icon(() -> new ItemStack(RegisterItems.GILDED_NETHERITE))
             .build();
+    private final Logger logger = LogManager.getLogger("GildedNetherite");
+
+    public static boolean hasFullPlatedNetherite(Entity entity) {
+        Iterable<ItemStack> iterable = entity.getArmorItems();
+        int count = 0;
+
+        for (ItemStack itemStack : iterable) {
+            Item item = itemStack.getItem();
+
+            if (item instanceof ArmorItem && ((ArmorItem) item).getMaterial() == RegisterItems.platedNetheriteArmorMaterial) {
+                count += 1;
+            }
+        }
+
+        return count >= 4;
+    }
 
     @Override
     public void onInitialize() {
