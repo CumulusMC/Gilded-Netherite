@@ -50,7 +50,8 @@ public class NearestLivingEntityNonPlatedNetheriteSensor extends Sensor<LivingEn
         Box box = entity.getBoundingBox().expand(16.0D, 16.0D, 16.0D);
 
         List<LivingEntity> list = world.getEntitiesByClass(LivingEntity.class, box, (livingEntity2) ->
-                livingEntity2 != entity && livingEntity2.isAlive() && !hasPlatedNetherite(livingEntity2));
+                livingEntity2 != entity && livingEntity2.isAlive() && !hasPlatedNetherite(livingEntity2)
+        );
 
         list.sort(Comparator.comparingDouble(entity::squaredDistanceTo));
 

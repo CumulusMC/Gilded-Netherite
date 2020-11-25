@@ -53,7 +53,8 @@ public class NearestPlayerNonPlatedNetheriteSensor extends Sensor<LivingEntity> 
     @Override
     protected void sense(ServerWorld world, LivingEntity entity) {
         Stream<ServerPlayerEntity> players = world.getPlayers().stream().filter(EntityPredicates.EXCEPT_SPECTATOR).filter((serverPlayerEntity) ->
-                entity.isInRange(serverPlayerEntity, 16.0D) && !hasPlatedNetherite(entity));
+                entity.isInRange(serverPlayerEntity, 16.0D) && !hasPlatedNetherite(entity)
+        );
 
         List<PlayerEntity> nearestPlayers = players
                 .sorted(Comparator.comparingDouble(entity::squaredDistanceTo))
