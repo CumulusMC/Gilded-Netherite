@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing",
+
+  "base": {
+    "item": "minecraft:netherite_chestplate"
+  },
+
+  "addition": {
+    "item": "gildednetherite:golden_porkchop"
+  },
+
+  "result": {
+    "item": "gildednetherite:plated_netherite_chestplate",
+    "count": 1
+  }
+}
