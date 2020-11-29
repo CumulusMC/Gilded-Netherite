@@ -6,6 +6,7 @@ import com.cumulusmc.gildednetherite.materials.PlatedNetheriteArmorMaterial;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.FoodComponents;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -26,6 +27,8 @@ public class RegisterItems {
     public static final Item PLATED_NETHERITE_LEGGINGS = new ArmorItem(platedNetheriteArmorMaterial, EquipmentSlot.LEGS, new Item.Settings().group(GildedNetherite.GILDED_NETHERITE_GROUP).fireproof());
     public static final Item PLATED_NETHERITE_BOOTS = new ArmorItem(platedNetheriteArmorMaterial, EquipmentSlot.FEET, new Item.Settings().group(GildedNetherite.GILDED_NETHERITE_GROUP).fireproof());
 
+    public static final Item GOLDEN_PORKCHOP = new GoldenPorkChopItem(new Item.Settings().group(GildedNetherite.GILDED_NETHERITE_GROUP).food(FoodComponents.COOKED_PORKCHOP));
+
     public static void register() {
         Registry.register(Registry.ITEM, new Identifier("gildednetherite", "gilded_netherite"), GILDED_NETHERITE);
         Registry.register(Registry.ITEM, new Identifier("gildednetherite", "gilded_netherite_helmet"), GILDED_NETHERITE_HELMET);
@@ -37,5 +40,7 @@ public class RegisterItems {
         Registry.register(Registry.ITEM, new Identifier("gildednetherite", "plated_netherite_chestplate"), PLATED_NETHERITE_CHESTPLATE);
         Registry.register(Registry.ITEM, new Identifier("gildednetherite", "plated_netherite_leggings"), PLATED_NETHERITE_LEGGINGS);
         Registry.register(Registry.ITEM, new Identifier("gildednetherite", "plated_netherite_boots"), PLATED_NETHERITE_BOOTS);
+
+        Registry.register(Registry.ITEM, new Identifier("gildednetherite", "golden_porkchop"), GOLDEN_PORKCHOP);
     }
 }
