@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "GGG",
+    "GMG",
     "GPG",
-    "GGG"
+    "GMG"
   ],
   "key": {
     "G": {
@@ -12,6 +12,9 @@
     "P": {
       "item": "minecraft:cooked_porkchop"
     },
+    "M": {
+      "item": "minecraft:phantom_membrane"
+    }
   },
   "result": {
     "item": "gildednetherite:golden_porkchop",

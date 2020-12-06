@@ -1,0 +1,34 @@
+{
+  "display": {
+    "icon": {
+      "item": "gildednetherite:golden_porkchop"
+    },
+    "title": {
+      "translate": "advancements.story.flying_pigs.title"
+    },
+    "description": {
+      "translate": "advancements.story.flying_pigs.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+
+  "criteria": {
+    "golden_porkchop": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "item": "gildednetherite:golden_porkchop"
+        }
+      }
+    }
+  },
+
+  "requirements": [
+    [
+      "golden_porkchop"
+    ]
+  ]
+}
