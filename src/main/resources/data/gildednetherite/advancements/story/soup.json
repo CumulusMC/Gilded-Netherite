@@ -1,0 +1,43 @@
+{
+  "display": {
+    "icon": {
+      "item": "gildednetherite:gilded_netherite_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "advancements.story.soup.title"
+    },
+    "description": {
+      "translate": "advancements.story.soup.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "criteria": {
+
+    "gilded_netherite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "gildednetherite:gilded_netherite_helmet"
+          },
+          {
+            "item": "gildednetherite:gilded_netherite_chestplate"
+          },
+          {
+            "item": "gildednetherite:gilded_netherite_leggings"
+          },
+          {
+            "item": "gildednetherite:gilded_netherite_boots"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -3,11 +3,15 @@
   "package": "com.cumulusmc.gildednetherite.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "ArmorItemMixin",
     "EntityMixin",
-    "ArmorItemMixin"
+    "PiglinBrainMixin",
+    "PiglinBruteBrainMixin",
+    "PiglinBruteEntityAccessor",
+    "PiglinEntityAccessor",
+    "SensorTypeMixin"
   ],
   "client": [
-
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,0 +1,47 @@
+{
+  "display": {
+    "icon": {
+      "item": "gildednetherite:plated_netherite_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "advancements.story.one_of_us.title"
+    },
+    "description": {
+      "translate": "advancements.story.one_of_us.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "criteria": {
+    "plated_netherite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "gildednetherite:plated_netherite_helmet"
+          },
+          {
+            "item": "gildednetherite:plated_netherite_chestplate"
+          },
+          {
+            "item": "gildednetherite:plated_netherite_leggings"
+          },
+          {
+            "item": "gildednetherite:plated_netherite_boots"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "plated_netherite"
+    ]
+  ]
+}

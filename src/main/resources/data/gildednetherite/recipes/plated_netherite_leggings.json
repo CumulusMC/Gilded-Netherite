@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing",
+
+  "base": {
+    "item": "minecraft:netherite_leggings"
+  },
+
+  "addition": {
+    "item": "gildednetherite:golden_porkchop"
+  },
+
+  "result": {
+    "item": "gildednetherite:plated_netherite_leggings",
+    "count": 1
+  }
+}

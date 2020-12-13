@@ -9,7 +9,6 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.ArmorMaterials;
 import net.minecraft.item.Item;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,12 +20,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.UUID;
 
-@Mixin (ArmorItem.class)
+@Mixin(ArmorItem.class)
 public abstract class ArmorItemMixin {
 
-    @Shadow @Final private static UUID[] MODIFIERS;
-    @Shadow @Final @Mutable private Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
-    @Shadow @Final protected float knockbackResistance;
+    @Shadow
+    @Final
+    private static UUID[] MODIFIERS;
+    @Shadow
+    @Final
+    protected float knockbackResistance;
+    @Shadow
+    @Final
+    @Mutable
+    private Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 
     @Inject(method = "<init>", at = @At(value = "RETURN"))
     private void constructor(ArmorMaterial material, EquipmentSlot slot, Item.Settings settings, CallbackInfo ci) {

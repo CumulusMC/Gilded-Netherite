@@ -1,0 +1,34 @@
+{
+  "display": {
+    "icon": {
+      "item": "gildednetherite:gilded_netherite"
+    },
+    "title": {
+      "translate": "advancements.story.netherite_tears.title"
+    },
+    "description": {
+      "translate": "advancements.story.netherite_tears.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "gilded_netherite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "gildednetherite:gilded_netherite"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "gilded_netherite"
+    ]
+  ]
+}
